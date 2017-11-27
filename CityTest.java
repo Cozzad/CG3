@@ -150,7 +150,11 @@ public class CityTest
         assertTrue(z.equals(cityA));
         assertTrue(cityA.equals(z));
         
-        /** From lecture: for en mængde vil et kald add(elem) kun tilføje elementet, 
+        City cityA2 = new City("City A", 80, country2);
+        assertFalse(cityA2.equals(cityA));
+        
+        /** 
+         * From lecture: for en mængde vil et kald add(elem) kun tilføje elementet, 
          * hvis der ikke eksisterer et element e i mængden, så elem.equals(e) er sand.
          */
         HashSet<City> cities = new HashSet<>();
@@ -163,8 +167,6 @@ public class CityTest
         cities.add(cityG);
         cities.add(cityA);
         assertTrue(cities.size()==7);
-        
-        
     }
     
     @Test
@@ -178,11 +180,28 @@ public class CityTest
         assertFalse(cityG.hashCode()==cityA.hashCode());
         assertFalse(cityA.hashCode()==0);
         
+        City cityA2 = new City("City A", 80, country2);
+        assertFalse(cityA.hashCode()==cityA2.hashCode());
+        
+        for(int i=0; i<1000 ; i++) {
+            City city1 = new City("City 1", 60, country1);
+            City city2 = new City("City 2", 60, country1);
+            City city3 = new City("City 3", 60, country2);
+            City city4 = new City("City 1", 60, country2);
+            
+            assertFalse(city1.hashCode()==city2.hashCode());
+            assertFalse(city1.hashCode()==city3.hashCode());
+            assertFalse(city1.hashCode()==city4.hashCode());
+            assertFalse(city3.hashCode()==city2.hashCode());
+            assertFalse(city3.hashCode()==city4.hashCode());
+            assertFalse(city2.hashCode()==city4.hashCode());
+            assertFalse(city4.hashCode()==city2.hashCode());
+        }
+        
         //Konsistency
         City c = cityA;
         assertTrue(cityA.equals(c));
         assertTrue(cityA.hashCode()==c.hashCode());
-        
     }
 }
 

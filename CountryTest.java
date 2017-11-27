@@ -300,7 +300,8 @@ public class CountryTest
         assertTrue(z.equals(country1));
         assertTrue(country1.equals(z));
         
-        /** From lecture: for en mængde vil et kald add(elem) kun tilføje elementet, 
+        /** 
+         * From lecture: for en mængde vil et kald add(elem) kun tilføje elementet, 
          * hvis der ikke eksisterer et element e i mængden, så elem.equals(e) er sand.
          */
         HashSet<Country> countries = new HashSet<>();
