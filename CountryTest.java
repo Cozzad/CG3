@@ -316,6 +316,8 @@ public class CountryTest
         assertFalse(country1.hashCode()==country2.hashCode());
         assertFalse(country1.hashCode()==0);
         
+        assertEquals(country1.hashCode(), 1227935351);
+        
         //Konsistency
         Country c = country1;
         assertTrue(country1.equals(c));
