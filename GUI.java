@@ -402,7 +402,7 @@ public class GUI {
         JLabel minLossSizeLabel = new JLabel("Min. loss when robbed:");
         tollAndRobberyPanel.add(minLossSizeLabel);
         
-        minLossTextField = new JTextField("20", 10);
+        minLossTextField = new JTextField("10", 10);
         tollAndRobberyPanel.add(minLossTextField);
 
         JLabel euroMinLoss = new JLabel("€ in [0,100]");
@@ -412,11 +412,11 @@ public class GUI {
         JLabel maxLossSizeLabel = new JLabel("Max. loss when robbed:");
         tollAndRobberyPanel.add(maxLossSizeLabel);
         
-        maxLossTextField = new JTextField("20", 10);
+        maxLossTextField = new JTextField("50", 10);
         tollAndRobberyPanel.add(maxLossTextField);
 
         JLabel euroMaxLoss = new JLabel("€ in [0,100]");
-        tollAndRobberyPanel.add(euroMinLoss);
+        tollAndRobberyPanel.add(euroMaxLoss);
         
         //Speed options
         JPanel speedPanel = new JPanel();
