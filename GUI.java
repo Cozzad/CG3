@@ -72,7 +72,8 @@ public class GUI {
     private JCheckBox random, greedy, smart;
     
     /** Textfields */
-    private JTextField tollSizeTextField, muggingTextField, minLossTextField, maxLossTextField;
+    private JTextField tollSizeTextField, muggingTextField, 
+    minLossTextField, maxLossTextField;
     
     /** Buttons */
     private JButton optionsButton, pauseResumeButton, abortButton, playLogButton, saveLogButton;
@@ -503,7 +504,7 @@ public class GUI {
                     minLoss = Integer.parseInt(minLossTextField.getText());
                     maxLoss = Integer.parseInt(maxLossTextField.getText());
                     
-                    if(minLoss < 0 || maxLoss < 0 || minLoss > 100 || maxLoss > 100){
+                    if(minLoss < 0 || maxLoss < 0 || minLoss > 100 || maxLoss > 100 || minLoss > maxLoss){
                         JOptionPane.showMessageDialog(frame, "'Min. loss' and 'Max. loss' must be between 0 and 100", "Malformed input", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
