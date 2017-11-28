@@ -299,6 +299,9 @@ public class CountryTest
         assertTrue(c.equals(z));
         assertTrue(z.equals(country1));
         assertTrue(country1.equals(z));
+        //Different classes.
+        assertFalse(country1.equals(cityA));
+        assertFalse(country2.equals(cityB));
         
         /** 
          * From lecture: for en mængde vil et kald add(elem) kun tilføje elementet, 
@@ -315,8 +318,6 @@ public class CountryTest
     public void hashCodeTest()  {
         assertFalse(country1.hashCode()==country2.hashCode());
         assertFalse(country1.hashCode()==0);
-        
-        assertEquals(country1.hashCode(), 1227935351);
         
         //Konsistency
         Country c = country1;

@@ -149,9 +149,12 @@ public class CityTest
         assertTrue(c.equals(z));
         assertTrue(z.equals(cityA));
         assertTrue(cityA.equals(z));
-        
+        //Different country
         City cityA2 = new City("City A", 80, country2);
         assertFalse(cityA2.equals(cityA));
+        //Different classes.
+        assertFalse(cityA.equals(country1));
+        assertFalse(cityB.equals(country2));
         
         /** 
          * From lecture: for en mængde vil et kald add(elem) kun tilføje elementet, 
@@ -179,25 +182,12 @@ public class CityTest
         assertFalse(cityF.hashCode()==cityG.hashCode());
         assertFalse(cityG.hashCode()==cityA.hashCode());
         assertFalse(cityA.hashCode()==0);
-        
+        //Different country
         City cityA2 = new City("City A", 80, country2);
         assertFalse(cityA.hashCode()==cityA2.hashCode());
-        
-        for(int i=0; i<1000 ; i++) {
-            City city1 = new City("City 1", 60, country1);
-            City city2 = new City("City 2", 60, country1);
-            City city3 = new City("City 3", 60, country2);
-            City city4 = new City("City 1", 60, country2);
-            
-            assertFalse(city1.hashCode()==city2.hashCode());
-            assertFalse(city1.hashCode()==city3.hashCode());
-            assertFalse(city1.hashCode()==city4.hashCode());
-            assertFalse(city3.hashCode()==city2.hashCode());
-            assertFalse(city3.hashCode()==city4.hashCode());
-            assertFalse(city2.hashCode()==city4.hashCode());
-            assertFalse(city4.hashCode()==city2.hashCode());
-        }
-        
+        //HashCodePlusValue
+        int hA = cityA.hashCode()+1;
+        assertFalse(hA==cityA.hashCode());
         //Konsistency
         City c = cityA;
         assertTrue(cityA.equals(c));
